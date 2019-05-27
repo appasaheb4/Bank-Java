@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2016-10-18T11:22:14 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TranLoan" pageWidth="440" pageHeight="595" orientation="Landscape" columnWidth="400" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cdc186a7-8717-4412-b138-25ef1e35c402">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="BankSystem"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<parameter name="Acno" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from  banksystem.commissiona_ctrancation  where  AccountNo = $P{Acno}]]>
+	</queryString>
+	<field name="SrNoMaster" class="java.lang.Integer"/>
+	<field name="SrNo" class="java.lang.Integer"/>
+	<field name="Date" class="java.sql.Date"/>
+	<field name="Name" class="java.lang.String"/>
+	<field name="AccountNo" class="java.lang.String"/>
+	<field name="PaidAmount" class="java.lang.Double"/>
+	<field name="AllCustomerAmount" class="java.lang.Double"/>
+	<field name="Tranmode" class="java.lang.String"/>
+	<field name="ChequeNo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-20" y="-20" width="440" height="40" uuid="67198dd6-c0bb-4bd2-9513-e93913cb4390"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="40" y="-20" width="321" height="40" uuid="f50d2148-8302-4802-89cb-e3059298b38e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="29" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Agent Transaction]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="60" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="280" y="0" width="122" height="20" uuid="dc13f603-dd70-4610-b500-1cd323a355f9"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="40" width="70" height="20" uuid="be967cb5-2107-411b-8d3b-30517619f003"/>
+				<textFieldExpression><![CDATA[" "+$F{Date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="40" width="70" height="15" uuid="0ce5c92b-6c2d-4782-9f3e-c5d4b5eadf8c"/>
+				<text><![CDATA[Oppning Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="70" height="15" uuid="db8c4653-7625-4042-a8fe-5f6094512db4"/>
+				<text><![CDATA[A/C No:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="70" y="20" width="70" height="20" uuid="84a9b7a5-e6b9-49f3-a11e-7e87f2b9b428"/>
+				<textFieldExpression><![CDATA[" "+$F{AccountNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="0" width="70" height="20" uuid="a0eb0935-6981-4316-abbb-91c9003fd4db"/>
+				<textFieldExpression><![CDATA[" "+$F{Name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="70" height="15" uuid="fab24963-346e-4174-91e7-1b3b7d1cd164"/>
+				<text><![CDATA[Name:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="30" height="30" uuid="a721939d-1140-4ea3-9793-f16262d95e3c"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sr. No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="70" height="30" uuid="abb4b9ea-c015-4b89-96c6-6e9724ffcd2c"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Paid Amt]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="0" width="70" height="30" uuid="8b3cab16-2f66-46a8-a79c-0cc40081240d"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cust Amt]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="0" width="90" height="30" uuid="d10bda42-9797-42ab-ae0d-2989ad869607"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tran Mode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="0" width="70" height="30" uuid="3afceeeb-ecd2-40ee-a05c-48f8c1f5291d"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cheque No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="0" width="70" height="30" uuid="73646052-3b2c-4d40-8915-12e3eb1511bc"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="30" height="20" uuid="385d0ef3-e76d-42f9-92e3-3787336af989"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[" "+$F{SrNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="70" height="20" uuid="3a5d6505-4d4e-4526-8497-787c523ba32b"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[" "+$F{PaidAmount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="0" width="70" height="20" uuid="f2357ecb-c50e-44b5-a291-5ddaa6f3f010"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[" "+$F{AllCustomerAmount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="0" width="90" height="20" uuid="5c63831e-146b-4951-969d-bace14732954"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[" "+$F{Tranmode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="0" width="70" height="20" uuid="4abac635-0e17-4aa9-8f63-7561ef270a69"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[" "+$F{ChequeNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="0" width="70" height="20" uuid="22debedd-bc67-4548-910c-3650d878f908"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[" "+$F{Date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement x="270" y="0" width="60" height="16" uuid="f594b87a-767b-4e68-bce3-81071f67d5c9"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="330" y="0" width="60" height="16" uuid="92f8e78a-ffb3-4de8-a572-8c6550922c8b"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

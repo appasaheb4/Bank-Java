@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2016-10-19T12:55:46 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TranLoan" pageWidth="400" pageHeight="595" orientation="Landscape" columnWidth="360" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cdc186a7-8717-4412-b138-25ef1e35c402">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="BankSystem"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<parameter name="Accno" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from   banksystem.dailyrecurring where  AccountNo= $P{Accno}]]>
+	</queryString>
+	<field name="SrNOMaster" class="java.lang.Integer"/>
+	<field name="SrNO" class="java.lang.Integer"/>
+	<field name="Date" class="java.sql.Date"/>
+	<field name="CustomerName" class="java.lang.String"/>
+	<field name="AccountNo" class="java.lang.String"/>
+	<field name="AgentName" class="java.lang.String"/>
+	<field name="Amount" class="java.lang.Double"/>
+	<field name="Interst" class="java.lang.Double"/>
+	<field name="InterestAmt" class="java.lang.Double"/>
+	<field name="MaturedAmt" class="java.lang.Double"/>
+	<field name="Duration" class="java.lang.String"/>
+	<field name="Days" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-20" y="-20" width="400" height="40" uuid="67198dd6-c0bb-4bd2-9513-e93913cb4390"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="-20" width="321" height="40" uuid="f50d2148-8302-4802-89cb-e3059298b38e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="29" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Recrring Transaction]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="80" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="230" y="0" width="122" height="20" uuid="dc13f603-dd70-4610-b500-1cd323a355f9"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="70" height="15" uuid="8d41d982-277d-4228-a607-3671996e0619"/>
+				<text><![CDATA[Name:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="70" y="0" width="110" height="20" uuid="59d208da-a86a-4542-93a1-6bda3031ffbe"/>
+				<textFieldExpression><![CDATA[" "+$F{CustomerName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="70" height="15" uuid="3325061e-77ce-475d-a384-c55886bdb9c8"/>
+				<text><![CDATA[A/C No:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="70" y="20" width="110" height="20" uuid="cbaf5741-8ec6-45f5-9dbf-4a9e014aedfe"/>
+				<textFieldExpression><![CDATA[" "+$F{AccountNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="40" width="70" height="15" uuid="3d572100-60f6-4f9e-972a-ee312190f14a"/>
+				<text><![CDATA[Oppning Date:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="70" y="40" width="110" height="20" uuid="8f6b53fe-e8a0-4f10-8ea6-0c9ed6887dea"/>
+				<textFieldExpression><![CDATA[" "+$F{Date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="60" width="70" height="15" uuid="bce0d053-ca32-4dbb-9467-c252972ce1c3"/>
+				<text><![CDATA[Agent Name:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="70" y="60" width="110" height="20" uuid="392147c5-9220-4083-8e8b-b5ce91a71478"/>
+				<textFieldExpression><![CDATA[" "+$F{AgentName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="30" height="30" uuid="a721939d-1140-4ea3-9793-f16262d95e3c"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sr. No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="0" width="80" height="30" uuid="8b3cab16-2f66-46a8-a79c-0cc40081240d"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amt]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="0" width="40" height="30" uuid="d10bda42-9797-42ab-ae0d-2989ad869607"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Int%]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="0" width="60" height="30" uuid="caed5497-297d-4fc6-9b87-9be97697ea2c"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Maturity Amt]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="0" width="70" height="30" uuid="0c4cb6aa-4c8a-4f23-b34f-061a32ad38de"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Duration]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="0" width="80" height="30" uuid="5d96dac7-6cec-46cd-b3e1-1a49aa55408d"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Transaction Date]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="30" height="20" uuid="385d0ef3-e76d-42f9-92e3-3787336af989"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" "+$F{SrNO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="0" width="80" height="20" uuid="f2357ecb-c50e-44b5-a291-5ddaa6f3f010"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["  "+$F{Amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="0" width="40" height="20" uuid="5c63831e-146b-4951-969d-bace14732954"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" "+$F{Interst}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="0" width="60" height="20" uuid="bb3a9ff0-4092-4da5-9c3b-d3a958142855"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" "+$F{MaturedAmt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="0" width="70" height="20" uuid="9f0ac12c-699b-4b83-b211-2c84019c7ba5"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" "+$F{Duration}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="0" width="80" height="20" uuid="1a4418a5-ed97-4894-84c1-eb2604191424"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[" "+$F{Date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="116" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="215" y="0" width="65" height="21" uuid="9ed74eb8-6b70-4586-a2be-cde2a3ed4657"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="280" y="0" width="65" height="21" uuid="25ecd442-deab-4db5-a714-a47b9cfd75eb"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

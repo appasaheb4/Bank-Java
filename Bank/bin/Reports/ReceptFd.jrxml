@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2016-10-14T14:59:19 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReceptFd" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c8dfe9f8-6468-4a98-8eb5-ec880304d1bf">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="BankSystem"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<subDataset name="Dataset1" uuid="f4fd5f4a-a090-44b3-a4ae-14be9812f838">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<queryString>
+		<![CDATA[select * from  banksystem.bankname order by  SrNo]]>
+	</queryString>
+	<field name="SrNo" class="java.lang.Integer"/>
+	<field name="BankName" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="12" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-20" y="-20" width="595" height="32" uuid="78ac9621-d20d-49eb-be0e-8299f7150e38"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="145" y="-21" width="241" height="33" uuid="f0dbba4a-08b4-4816-a8c7-afd0222d3f0a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="19" isBold="false"/>
+				</textElement>
+				<text><![CDATA[RECEIPT]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="21" splitType="Stretch">
+			<textField pattern="yyyy-MM-dd">
+				<reportElement x="340" y="0" width="70" height="20" uuid="3c0cdc56-1121-42df-b1ba-58bf0dc4dd4f"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="410" y="0" width="41" height="21" uuid="924df6ce-10d2-4ae3-82ef-0d3d0afbb986"/>
+				<text><![CDATA[No:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="0" width="30" height="20" uuid="8c6a04dd-a9ca-46e3-b5cf-d77e75f0aca5"/>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="192" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="70" height="20" uuid="63476823-f94a-4ac4-b97a-4cbef97a2932"/>
+				<text><![CDATA[Received from:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="15" width="40" height="20" uuid="6ab73c71-54b6-4362-9c14-7754dde02fb3"/>
+				<text><![CDATA[Amount:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-2" y="40" width="72" height="20" uuid="eadfc003-6c2d-4c6b-8a80-b81536b41ff4"/>
+				<text><![CDATA[For Payment of:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="60" width="30" height="20" uuid="776d2637-4a6d-42a9-8e34-10f9c66f19bb"/>
+				<text><![CDATA[From:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="60" width="30" height="20" uuid="f7efdfbe-3f9d-4074-8c47-92b9f6a22928"/>
+				<text><![CDATA[to]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="60" width="40" height="20" uuid="faeb25c1-3a03-474c-b610-23fe24ee9a3a"/>
+				<text><![CDATA[Paid by:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="60" width="40" height="20" uuid="cedfec12-976a-45e4-b01b-415d73c111b1"/>
+				<text><![CDATA[[  ]Cash]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="80" width="70" height="20" uuid="0c7d57b6-d394-4a05-9081-78e5bc679656"/>
+				<text><![CDATA[[  ]Cheque No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="100" width="70" height="20" uuid="fddf1c5f-86fa-491e-ae56-e7bf0fa75c6c"/>
+				<text><![CDATA[[  ]Money Order]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="110" width="60" height="20" uuid="9e47fbfe-3b3e-4e21-90d4-2cc1badf1ce1"/>
+				<text><![CDATA[Recived By:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="110" width="50" height="20" uuid="e00104b4-683c-4e25-a962-9f8b08b0f29c"/>
+				<text><![CDATA[[Name]]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="130" width="59" height="20" uuid="edeb2ba2-0244-443e-8a77-709d93efd50e"/>
+				<text><![CDATA[[Address]]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="151" width="59" height="20" uuid="59c19047-7321-4a5e-a1df-d4277e063082"/>
+				<text><![CDATA[[Phone No]]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="130" width="160" height="20" uuid="398f0f49-6161-4bd5-9755-b48d26342af3"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[A/C Amount:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="151" width="90" height="20" uuid="204f843f-0b29-47d6-8686-efc298107340"/>
+				<text><![CDATA[This Payment:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="172" width="90" height="20" uuid="b7e7e6d5-e569-475b-b9db-30d3433eadb5"/>
+				<text><![CDATA[Balance:$]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="3">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="3" uuid="81c425c0-b540-4d85-acd0-f3a6398625ab"/>
+				<textFieldExpression><![CDATA[$F{SrNo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

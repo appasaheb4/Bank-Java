@@ -1,0 +1,800 @@
+-- MySQL dump 10.13  Distrib 5.5.50, for Win32 (x86)
+--
+-- Host: localhost    Database: banksystem
+-- ------------------------------------------------------
+-- Server version	5.5.50
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Current Database: `banksystem`
+--
+
+/*!40000 DROP DATABASE IF EXISTS `banksystem`*/;
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `banksystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+USE `banksystem`;
+
+--
+-- Table structure for table `adminloginpage`
+--
+
+DROP TABLE IF EXISTS `adminloginpage`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `adminloginpage` (
+  `SrNo` int(11) NOT NULL,
+  `Date` date NOT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  `Address` varchar(45) DEFAULT NULL,
+  `MobileNo` varchar(45) DEFAULT NULL,
+  `Emial` varchar(45) DEFAULT NULL,
+  `UserName` varchar(45) DEFAULT NULL,
+  `Password` varchar(45) DEFAULT NULL,
+  `Systempassword` varchar(45) DEFAULT NULL,
+  `UserType` varchar(45) DEFAULT NULL,
+  `Hint` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`SrNo`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `adminloginpage`
+--
+
+LOCK TABLES `adminloginpage` WRITE;
+/*!40000 ALTER TABLE `adminloginpage` DISABLE KEYS */;
+INSERT INTO `adminloginpage` VALUES (1,'2016-10-05',NULL,NULL,NULL,NULL,'admin','admin',NULL,NULL,NULL),(2,'2016-11-01','appasaheb ','motewadi	','0123','on','appasaheb','123','123','Admin','new'),(3,'2016-11-01','lakade','dska	','0321','fdsa','lakade','7777','0258','Admin','new new');
+/*!40000 ALTER TABLE `adminloginpage` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `bankname`
+--
+
+DROP TABLE IF EXISTS `bankname`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bankname` (
+  `SrNo` int(11) NOT NULL,
+  `BankName` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`SrNo`),
+  UNIQUE KEY `BankName_UNIQUE` (`BankName`),
+  KEY `bankname` (`BankName`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bankname`
+--
+
+LOCK TABLES `bankname` WRITE;
+/*!40000 ALTER TABLE `bankname` DISABLE KEYS */;
+INSERT INTO `bankname` VALUES (3,'appa'),(1,'sbi');
+/*!40000 ALTER TABLE `bankname` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `commissiona_c`
+--
+
+DROP TABLE IF EXISTS `commissiona_c`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `commissiona_c` (
+  `SrNoMaster` int(11) NOT NULL,
+  `SrNo` int(11) DEFAULT NULL,
+  `Date` date DEFAULT NULL,
+  `CommisstionPaidDate` date DEFAULT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  `AccountNo` varchar(45) DEFAULT NULL,
+  `Address` varchar(45) DEFAULT NULL,
+  `Age` varchar(45) DEFAULT NULL,
+  `ContactNo` varchar(45) DEFAULT NULL,
+  `CommisstionAmt` double DEFAULT '0',
+  `TotalCustomerAmt` double DEFAULT '0',
+  `Note` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`SrNoMaster`),
+  UNIQUE KEY `Name_UNIQUE` (`Name`),
+  UNIQUE KEY `AccountNo_UNIQUE` (`AccountNo`),
+  KEY `comaccno` (`AccountNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `commissiona_c`
+--
+
+LOCK TABLES `commissiona_c` WRITE;
+/*!40000 ALTER TABLE `commissiona_c` DISABLE KEYS */;
+INSERT INTO `commissiona_c` VALUES (1,1,'2016-11-03','2016-11-03','lakade','Comm-1','appasaheb','22.0','dfsafdsa',100,0,'dsafasds'),(2,2,'2016-10-03','2016-10-03','dipak','Comm-2','pune','200.0','01234567890',100,0,'dsa'),(3,3,'2016-10-03','2016-10-03','fasd','Comm-3','fdlkas','55.0','dfs',0,0,'ghhj	ds	'),(4,4,'2016-10-03','2016-10-03','fdksj','Comm-4','lkjfds','22.0','fdsa',0,0,'appasaheb lalkad'),(5,5,'2016-12-31','2016-12-31','kaka','Comm-5','kdlsa','22.0','012',0,0,'dsa'),(6,6,'2016-12-31','2016-12-31','ka','Comm-6','2ds','20.0','20',0,0,'ads'),(7,7,'2016-12-31','2016-12-31','aldks','Comm-7','dlska','22.0','021',0,0,'dsa	'),(8,8,'2016-12-31','2016-12-31','dsa','Comm-8','fsdlksa','88.0','52',0,0,'das'),(9,9,'2016-12-31','2016-12-31','kfdlaj','Comm-9','dsakl','55.0','123',0,0,'daslk'),(10,10,'2016-12-31','2016-12-31','dsal','Comm-10','dslka','33.0','21',0,0,'dsadsa	'),(11,11,'2016-12-31','2016-12-31','flkdj daslkj','Comm-11','lkfdjas','50.0','2123',100,0,'dsa	'),(12,12,'2016-12-31','2016-12-31','manisha','Comm-12','dkas','33.0','10025',0,0,'dsa'),(13,13,'2016-12-31','2016-12-31','dsa fas fa','Comm-13','dsa','33.0','320',300,0,'dsa'),(14,14,'2016-12-31','2017-01-01','minal','Comm-14','ldas','85.0','45',100,0,'das'),(15,15,'2016-12-31','2017-01-01','lla lla lla','Comm-15','lfkdas','88.0','125',100,0,'fdas');
+/*!40000 ALTER TABLE `commissiona_c` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `commissiona_ctrancation`
+--
+
+DROP TABLE IF EXISTS `commissiona_ctrancation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `commissiona_ctrancation` (
+  `SrNoMaster` int(11) DEFAULT NULL,
+  `SrNo` int(11) DEFAULT NULL,
+  `Date` date DEFAULT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  `AccountNo` varchar(45) DEFAULT NULL,
+  `PaidAmount` double DEFAULT NULL,
+  `AllCustomerAmount` double DEFAULT NULL,
+  `Tranmode` varchar(45) DEFAULT NULL,
+  `ChequeNo` varchar(45) DEFAULT NULL,
+  KEY `commacno_idx` (`AccountNo`),
+  CONSTRAINT `commacno` FOREIGN KEY (`AccountNo`) REFERENCES `commissiona_c` (`AccountNo`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `commissiona_ctrancation`
+--
+
+LOCK TABLES `commissiona_ctrancation` WRITE;
+/*!40000 ALTER TABLE `commissiona_ctrancation` DISABLE KEYS */;
+INSERT INTO `commissiona_ctrancation` VALUES (1,1,'2016-11-03','lakade','Comm-1',100,0,NULL,NULL),(2,2,'2016-10-03','dipak','Comm-2',100,0,NULL,NULL),(3,1,'2016-12-31','dsa','Comm-8',NULL,NULL,NULL,NULL),(4,1,'2016-12-31','kfdlaj','Comm-9',NULL,NULL,NULL,NULL),(5,1,'2016-12-31','dsal','Comm-10',NULL,NULL,NULL,NULL),(6,1,'2016-12-31','flkdj daslkj','Comm-11',NULL,NULL,NULL,NULL),(7,1,'2016-12-31','manisha','Comm-12',NULL,NULL,NULL,NULL),(8,1,'2016-12-31','dsa fas fa','Comm-13',NULL,NULL,NULL,NULL),(9,1,'2016-12-31','minal','Comm-14',NULL,NULL,NULL,NULL),(10,1,'2016-12-31','lla lla lla','Comm-15',NULL,NULL,NULL,NULL),(13,1,'2016-12-31','dsa fas fa','Comm-13',300,0,'By Saving',''),(15,1,'2016-12-31','lla lla lla','Comm-15',200,0,'By Saving',''),(15,2,'2016-12-31','lla lla lla','Comm-15',500,0,'By Saving',''),(15,3,'2016-12-31','lla lla lla','Comm-15',500,0,'By Saving',''),(15,4,'2016-12-31','lla lla lla','Comm-15',200,0,'By Saving',''),(15,5,'2016-12-31','lla lla lla','Comm-15',400,0,'By Saving',''),(15,6,'2016-12-31','lla lla lla','Comm-15',600,0,'By Saving',''),(15,7,'2016-12-31','lla lla lla','Comm-15',35,0,'By Saving',''),(15,8,'2016-12-31','lla lla lla','Comm-15',400,0,'By Saving',''),(15,9,'2016-12-31','lla lla lla','Comm-15',600,0,'By Saving',''),(15,10,'2017-01-01','lla lla lla','Comm-15',300,0,'By Saving',''),(15,11,'2017-01-01','lla lla lla','Comm-15',100,0,'By Saving',''),(15,12,'2017-01-01','lla lla lla','Comm-15',100,0,'By Saving',''),(14,1,'2017-01-01','minal','Comm-14',500,0,'By Saving',''),(15,13,'2017-01-01','lla lla lla','Comm-15',100,0,'By Saving',''),(14,2,'2017-01-01','minal','Comm-14',300,0,'By Saving',''),(14,3,'2017-01-01','minal','Comm-14',100,0,'By Saving',''),(15,14,'2017-01-01','lla lla lla','Comm-15',300,0,'By Saving',''),(14,4,'2017-01-01','minal','Comm-14',100,0,'By Saving',''),(15,15,'2017-01-01','lla lla lla','Comm-15',10,0,'By Saving',''),(15,16,'2017-01-01','lla lla lla','Comm-15',30,0,'By Saving',''),(15,17,'2017-01-01','lla lla lla','Comm-15',100,0,'By Saving','');
+/*!40000 ALTER TABLE `commissiona_ctrancation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `current`
+--
+
+DROP TABLE IF EXISTS `current`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `current` (
+  `SrNoMaster` int(10) NOT NULL,
+  `SrNo` int(10) DEFAULT NULL,
+  `Date` date DEFAULT NULL,
+  `Name` varchar(45) NOT NULL,
+  `AccountNumber` varchar(45) NOT NULL,
+  `BussinessName` varchar(45) DEFAULT NULL,
+  `Address` varchar(45) DEFAULT NULL,
+  `Age` double DEFAULT NULL,
+  `Contactno` varchar(45) DEFAULT NULL,
+  `AcountCat` varchar(45) DEFAULT NULL,
+  `OppingAmount` double DEFAULT NULL,
+  `Nomeny` varchar(45) DEFAULT NULL,
+  `NomenyRelation` varchar(45) DEFAULT NULL,
+  `FileData` longblob,
+  `FilePath` varchar(45) DEFAULT 'nopath',
+  `Notes` longtext,
+  `JoinName` varchar(45) DEFAULT NULL,
+  `JoinAge` varchar(45) DEFAULT NULL,
+  `JoinContactNO` varchar(45) DEFAULT NULL,
+  `JoinRelation` varchar(45) DEFAULT NULL,
+  `OtherAmount` double DEFAULT NULL,
+  PRIMARY KEY (`SrNoMaster`),
+  KEY `accno` (`AccountNumber`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `current`
+--
+
+LOCK TABLES `current` WRITE;
+/*!40000 ALTER TABLE `current` DISABLE KEYS */;
+INSERT INTO `current` VALUES (1,1,'2016-11-01','madan','C-1','dska','dlsak',55,'123456','B',1100,'dsa','   Paternal Grandfather','try {\r\n			conn = DBConnection.getConnection();\r\n			String insbe = \"insert into bkathityping.bookdene values(?,?,?,?,?,?,?,?,?);\";\r\n			ps = conn.prepareStatement(insbe);\r\n			ps.setInt(1, Integer.valueOf(textFBDSrno));\r\n			ps.setInt(2, Integer.valueOf(textFBDSrno));\r\n			ps.setDate(3, (java.sql.Date) d);\r\n			ps.setString(4, textFBDBookDenoteSir);\r\n			ps.setString(5, textFBDStudentName);\r\n			ps.setString(6, textFBDBookName);\r\n			ps.setDate(7, bdene11);\r\n			ps.setDate(8, bdentrretn11);\r\n			ps.setString(9, textFBDBookcountity);\r\n			int is = ps.executeUpdate();\r\n			if (is > 0) {\r\n	%>\r\n	<script type=\"text/javascript\">\r\n		alert(\"Data are saved.\");\r\n		window.location.href = \"BookInformation.jsp\";\r\n	</script>\r\n	<%\r\n		}\r\n			ps.close();\r\n			conn.close();\r\n		} catch (Exception e2) {\r\n			out.println(e2.getMessage());\r\n		}\r\n		try {\r\n			conn = DBConnection.getConnection();\r\n			String insbe = \"insert into bkathityping.bookgive values(?,?,?,?,?,?,?,?,?);\";\r\n			ps = conn.prepareStatement(insbe);\r\n			ps.setInt(1, Integer.valueOf(textFBGSrno));\r\n			ps.setInt(2, Integer.valueOf(textFBGSrno));\r\n			ps.setDate(3, (java.sql.Date) d);\r\n			ps.setString(4, textFBGBookDenoteSir);\r\n			ps.setString(5, textFBGStudentName);\r\n			ps.setString(6, textFBGBookName);\r\n			ps.setDate(7, bgenrretrn11);\r\n			ps.setDate(8, bgenerutun11);\r\n			ps.setString(9, textFBGBookcountity);\r\n			int is = ps.executeUpdate();\r\n			if (is > 0) {\r\n	%>\r\n	<script type=\"text/javascript\">\r\n		alert(\"Data are saved.\");\r\n		window.location.href = \"BookInformation.jsp\";\r\n	</script>\r\n	<%\r\n		}\r\n			ps.close();\r\n			conn.close();\r\n\r\n		} catch (Exception e3) {\r\n			out.println(e3.getMessage());\r\n		}\r\n	%>\r\n','C:\\Users\\appasaheb\\Desktop\\11.txt','dsa','','0','','Other',200);
+/*!40000 ALTER TABLE `current` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `currenttranscation`
+--
+
+DROP TABLE IF EXISTS `currenttranscation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `currenttranscation` (
+  `SrNoMaster` int(11) DEFAULT NULL,
+  `SrNo` int(11) DEFAULT NULL,
+  `Date` date DEFAULT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  `AccountNo` varchar(45) DEFAULT NULL,
+  `TransactionParticulars` varchar(200) DEFAULT NULL,
+  `tranby` varchar(45) DEFAULT NULL,
+  `chequeno` varchar(45) DEFAULT NULL,
+  `Amount` double DEFAULT NULL,
+  `Withral` double DEFAULT NULL,
+  `Deposite` double DEFAULT NULL,
+  `Balance` double DEFAULT NULL,
+  KEY `curacno_idx` (`AccountNo`),
+  CONSTRAINT `curacno` FOREIGN KEY (`AccountNo`) REFERENCES `current` (`AccountNumber`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `currenttranscation`
+--
+
+LOCK TABLES `currenttranscation` WRITE;
+/*!40000 ALTER TABLE `currenttranscation` DISABLE KEYS */;
+INSERT INTO `currenttranscation` VALUES (1,1,'2016-11-01','madan','C-1','opening account',NULL,NULL,NULL,NULL,NULL,1000),(1,2,'2016-11-01','madan','C-1','asd','By Cash','',200,NULL,200,1200),(1,3,'2016-11-01','madan','C-1','sa','By Cash','',100,100,NULL,1100);
+/*!40000 ALTER TABLE `currenttranscation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `dailyrecurring`
+--
+
+DROP TABLE IF EXISTS `dailyrecurring`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dailyrecurring` (
+  `SrNOMaster` int(11) DEFAULT NULL,
+  `SrNO` int(11) DEFAULT NULL,
+  `Date` date DEFAULT NULL,
+  `CustomerName` varchar(45) DEFAULT NULL,
+  `AccountNo` varchar(45) DEFAULT NULL,
+  `AgentName` varchar(45) DEFAULT NULL,
+  `Amount` double DEFAULT NULL,
+  `Interst` double DEFAULT NULL,
+  `InterestAmt` double DEFAULT NULL,
+  `MaturedAmt` double DEFAULT NULL,
+  `Duration` varchar(45) DEFAULT NULL,
+  `Days` varchar(45) DEFAULT NULL,
+  KEY `SrNoMaster` (`SrNOMaster`) USING BTREE,
+  KEY `reacno_idx` (`AccountNo`),
+  CONSTRAINT `reacno` FOREIGN KEY (`AccountNo`) REFERENCES `recurring` (`AccountNo`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dailyrecurring`
+--
+
+LOCK TABLES `dailyrecurring` WRITE;
+/*!40000 ALTER TABLE `dailyrecurring` DISABLE KEYS */;
+INSERT INTO `dailyrecurring` VALUES (6,1,'2021-05-27','dipake','R-6','fdksj',1000,10,100,1100,'3 Month	','90.0'),(6,2,'2023-08-10','dipake- Interst% added=10.0','R-6','fdksj',2143.59,10,NULL,2357.95,NULL,NULL),(7,1,'2023-10-13','daslk','R-7','dsa',100,10,10,110,'3 Month	','90.0'),(6,3,'2023-12-14','dipake- (Interst% added=10.0)','R-6','fdksj',2593.74,10,NULL,2853.12,NULL,NULL),(7,2,'2024-01-26','daslk- (Interst% added=10.0)','R-7','dsa',121,10,NULL,133.1,NULL,NULL),(6,4,'2024-04-25','dipake- (Interst% added=10.0)','R-6','fdksj',3138.43,10,NULL,3452.28,NULL,NULL),(7,3,'1970-01-01','daslk','R-7','90.0',500,10,50,793.1,'3 Month	','90.0'),(6,5,'1970-01-01','dipake','R-6','null',500,10,50,10313.336,'null','null'),(7,4,'1970-01-01','daslk','R-7','90.0',300,10,30,1123.1,'3 Month	','90.0'),(7,5,'1970-01-01','daslk','R-7','90.0',400,10,40,1563.1,'3 Month	','90.0'),(8,1,'2017-01-01','appasaheb','R-8','dipak',100,10,10,110,'1 Month','30.0'),(8,2,'1970-01-01','appasaheb','R-8','30.0',100,10,10,220,'1 Month','30.0'),(8,3,'1970-01-01','appasaheb','R-8','30.0',300,10,30,550,'1 Month','30.0'),(6,6,'2021-05-27','dipake','R-6','',400,10,40,10753.336,'null','null'),(8,4,'2017-01-01','appasaheb','R-8','',300,10,30,880,'1 Month','30.0');
+/*!40000 ALTER TABLE `dailyrecurring` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `employees`
+--
+
+DROP TABLE IF EXISTS `employees`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `employees` (
+  `SrNoMaster` int(11) NOT NULL,
+  `SrNo` int(11) DEFAULT NULL,
+  `Date` date DEFAULT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  `AccountNO` varchar(45) DEFAULT NULL,
+  `Address` varchar(45) DEFAULT NULL,
+  `Age` varchar(45) DEFAULT NULL,
+  `ContactNo` varchar(45) DEFAULT NULL,
+  `Days` varchar(45) DEFAULT NULL,
+  `PaidAmount` double DEFAULT NULL,
+  `Payment` double DEFAULT NULL,
+  `Leaves` varchar(45) DEFAULT NULL,
+  `Notes` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`SrNoMaster`),
+  UNIQUE KEY `Name_UNIQUE` (`Name`),
+  UNIQUE KEY `AccountNO_UNIQUE` (`AccountNO`),
+  KEY `accno` (`AccountNO`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `employees`
+--
+
+LOCK TABLES `employees` WRITE;
+/*!40000 ALTER TABLE `employees` DISABLE KEYS */;
+INSERT INTO `employees` VALUES (1,1,'2016-12-31','appsaheb','Emp-1','dsklj','22.0','021','-83',100,1000,'3.0','dsa	'),(2,2,'2016-12-31','fdlsakj','Emp-2','lkfjdas','55.0','0123','-83',10,100,'2.0','fsda	'),(3,3,'2017-01-01','llasdr daslkj','Emp-3','dklasj','55.0','5456','-84',100,100000,'2.0','dfdas	'),(4,4,'2017-01-01','dfas','Emp-4','dsakl','88.0','654','-84',200,2000,'2.0','654	');
+/*!40000 ALTER TABLE `employees` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `emptrancation`
+--
+
+DROP TABLE IF EXISTS `emptrancation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `emptrancation` (
+  `SrNoMaster` int(11) DEFAULT NULL,
+  `SrNo` int(11) DEFAULT NULL,
+  `Date` date DEFAULT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  `AccountNo` varchar(45) DEFAULT NULL,
+  `Salary` double DEFAULT NULL,
+  `AdvancePay` double DEFAULT NULL,
+  `Leaves` varchar(45) DEFAULT NULL,
+  `LeavesAmt` double DEFAULT NULL,
+  `TotalAmount` double DEFAULT NULL,
+  `Mode` varchar(45) DEFAULT NULL,
+  `ChequeNo` varchar(45) DEFAULT NULL,
+  KEY `accounno_idx` (`AccountNo`),
+  CONSTRAINT `accounno` FOREIGN KEY (`AccountNo`) REFERENCES `employees` (`AccountNO`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `emptrancation`
+--
+
+LOCK TABLES `emptrancation` WRITE;
+/*!40000 ALTER TABLE `emptrancation` DISABLE KEYS */;
+INSERT INTO `emptrancation` VALUES (1,1,'2016-12-31','appsaheb','Emp-1',1000,100,'3',NULL,900,'',NULL),(1,2,'2016-12-31','appsaheb','Emp-1',1000,100,'3.0',100,800,'Saving Account',''),(1,3,'2016-12-31','appsaheb','Emp-1',1000,200,'3.0',300,500,'Saving Account',''),(2,1,'2016-12-31','fdlsakj','Emp-2',100,10,'2',NULL,90,'',NULL),(2,2,'2017-01-01','fdlsakj','Emp-2',100,10,'2.0',30,60,'Saving Account',''),(2,3,'2017-01-01','fdlsakj','Emp-2',100,20,'2.0',20,60,'Saving Account',''),(2,4,'2017-01-01','fdlsakj','Emp-2',100,40,'2.0',20,40,'Saving Account',''),(2,5,'2017-01-01','fdlsakj','Emp-2',100,80,'2.0',10,10,'Saving Account',''),(2,6,'2017-01-01','fdlsakj','Emp-2',100,160,'2.0',1,-61,'Saving Account',''),(2,7,'2017-01-01','fdlsakj','Emp-2',100,320,'2.0',1,-221,'Saving Account',''),(1,4,'2017-01-01','appsaheb','Emp-1',1000,400,'3.0',20,580,'Saving Account',''),(1,5,'2017-01-01','appsaheb','Emp-1',1000,800,'3.0',30,170,'Saving Account',''),(1,6,'2017-01-01','appsaheb','Emp-1',1000,1600,'3.0',100,-700,'Saving Account',''),(1,7,'2017-01-01','appsaheb','Emp-1',1000,3200,'3.0',30,-2230,'Saving Account',''),(1,8,'2017-01-01','appsaheb','Emp-1',1000,6400,'3.0',300,-5700,'Saving Account',''),(1,9,'2017-01-01','appsaheb','Emp-1',1000,12800,'3.0',100,-11900,'Saving Account',''),(1,10,'2017-01-01','appsaheb','Emp-1',1000,25600,'3.0',100,-24700,'Saving Account',''),(1,11,'2017-01-01','appsaheb','Emp-1',1000,51200,'3.0',100,-50300,'Saving Account',''),(1,12,'2017-01-01','appsaheb','Emp-1',1000,102400,'3.0',10,-101410,'Saving Account',''),(1,13,'2017-01-01','appsaheb','Emp-1',1000,204800,'3.0',100,-203900,'Saving Account',''),(1,14,'2017-01-01','appsaheb','Emp-1',1000,409600,'3.0',3,-408603,'Saving Account',''),(1,15,'2017-01-01','appsaheb','Emp-1',1000,819200,'3.0',3,-818203,'Saving Account',''),(1,16,'2017-01-01','appsaheb','Emp-1',1000,1638400,'3.0',100,-1637500,'Saving Account',''),(1,17,'2017-01-01','appsaheb','Emp-1',1000,3276800,'3.0',300,-3276100,'Saving Account',''),(1,18,'2017-01-01','appsaheb','Emp-1',1000,6553600,'3.0',10,-6552610,'Saving Account',''),(1,19,'2017-01-01','appsaheb','Emp-1',1000,13107200,'3.0',10,-13106210,'Saving Account',''),(1,20,'2017-01-01','appsaheb','Emp-1',1000,26214400,'3.0',30,-26213430,'Saving Account',''),(1,21,'2017-01-01','appsaheb','Emp-1',1000,52428800,'3.0',2,-52427802,'Saving Account',''),(1,22,'2017-01-01','appsaheb','Emp-1',1000,104857600,'3.0',3,-104856603,'Saving Account',''),(1,23,'2017-01-01','appsaheb','Emp-1',1000,209715200,'3.0',30,-209714230,'Saving Account',''),(1,24,'2017-01-01','appsaheb','Emp-1',1000,419430400,'3.0',300,-419429700,'Saving Account',''),(1,25,'2017-01-01','appsaheb','Emp-1',1000,838860800,'3.0',4,-838859804,'Saving Account',''),(2,8,'2017-01-01','fdlsakj','Emp-2',100,640,'2.0',4,-544,'Saving Account',''),(3,1,'2017-01-01','llasdr daslkj','Emp-3',100000,100,'2',NULL,99900,'',NULL),(4,1,'2017-01-01','dfas','Emp-4',2000,200,'2',NULL,1800,'',NULL),(4,2,'2017-01-01','dfas','Emp-4',2000,200,'2.0',200,1600,'Saving Account',''),(4,3,'2017-01-01','dfas','Emp-4',2000,400,'2.0',300,1300,'Saving Account','');
+/*!40000 ALTER TABLE `emptrancation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `expenditure`
+--
+
+DROP TABLE IF EXISTS `expenditure`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `expenditure` (
+  `SrNoMaster` int(11) NOT NULL,
+  `SrNo` int(11) DEFAULT NULL,
+  `Date` date DEFAULT NULL,
+  `Expfor` varchar(45) DEFAULT NULL,
+  `AccountNo` varchar(45) DEFAULT NULL,
+  `Amount` double DEFAULT NULL,
+  `Note` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`SrNoMaster`),
+  UNIQUE KEY `AccountNo_UNIQUE` (`AccountNo`),
+  KEY `accno` (`AccountNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `expenditure`
+--
+
+LOCK TABLES `expenditure` WRITE;
+/*!40000 ALTER TABLE `expenditure` DISABLE KEYS */;
+INSERT INTO `expenditure` VALUES (3,3,'2016-11-03','sdaf','Ex-3',300,'DSAF'),(4,4,'2016-11-03','fgd','Ex-4',200,'gs'),(5,5,'2016-10-03','car give','Ex-5',200000,'dd');
+/*!40000 ALTER TABLE `expenditure` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `expenditureincome`
+--
+
+DROP TABLE IF EXISTS `expenditureincome`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `expenditureincome` (
+  `SrNoMaster` int(11) NOT NULL,
+  `Date` date DEFAULT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  `AccountNo` varchar(45) DEFAULT NULL,
+  `Amount` double DEFAULT NULL,
+  `Note` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`SrNoMaster`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `expenditureincome`
+--
+
+LOCK TABLES `expenditureincome` WRITE;
+/*!40000 ALTER TABLE `expenditureincome` DISABLE KEYS */;
+INSERT INTO `expenditureincome` VALUES (3,'2021-05-27','dipake','R-6',200,'das	'),(4,'2023-10-13','daslk','R-7',300,'lkdjs	'),(5,'2024-04-25','appa','F-3',100,'ajkg'),(6,'2024-05-01','sagar kaka','F-4',200,'asd	'),(7,'2024-05-01','kaka ','F-5',300,'dsa	'),(8,'2024-06-02','asdkl','F-6',100,'fdas'),(9,'2024-06-02','dsj dkajf','F-7',200,'dfas'),(10,'2024-08-15','madan lakade','F-8',100,'fdsa'),(11,'2024-10-16','dfsa das','F-9',300,'ddas'),(12,'2024-12-10','dasdsa fads','F-10',200,'dasf'),(13,'2025-01-23','madam','F-11',300,'fds'),(14,'2025-01-23','dsakfj dsafkj','F-12',300,'fads	'),(15,'2025-01-23','madam madam ','F-13',500,'hjgf	'),(16,'2025-01-23','sagar dhone','F-14',300,'dsa	'),(17,'2016-11-01','appasaheb','L-1',20,'dsa'),(18,'2016-11-01','lakade','S-1',300,'dsa'),(19,'2016-11-01','madan','C-1',200,'dsa'),(20,'2017-01-01','appasaheb','R-8',200,'fdsa	'),(21,'2017-01-26','madan','L-2',200,'fdsa'),(22,'2017-01-26','hgh hgjh jhgjhgf','F-15',300,'nbvh	'),(23,'2017-01-26',' cmxvn dlakf','F-16',300,'987fdsa	');
+/*!40000 ALTER TABLE `expenditureincome` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fd`
+--
+
+DROP TABLE IF EXISTS `fd`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fd` (
+  `SrNoMaster` int(10) NOT NULL DEFAULT '0',
+  `SrNo` varchar(45) DEFAULT '0',
+  `Date` date DEFAULT NULL,
+  `UpdateDate` date DEFAULT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  `AccountNumber` varchar(45) DEFAULT NULL,
+  `Address` varchar(45) DEFAULT NULL,
+  `Age` double DEFAULT '0',
+  `ContactNo` varchar(45) DEFAULT NULL,
+  `Duration` varchar(45) DEFAULT NULL,
+  `Days` varchar(45) DEFAULT NULL,
+  `Amount` double DEFAULT '0',
+  `Interes` double DEFAULT '0',
+  `IntsetAmt` double DEFAULT '0',
+  `Total` double DEFAULT '0',
+  `LoanPer` double DEFAULT '0',
+  `LoanAmount` double DEFAULT '0',
+  `Interst` double DEFAULT '0',
+  `InterstAmt44` double DEFAULT '0',
+  `TotalLoanAgamt` double DEFAULT '0',
+  `Nomeny` varchar(45) DEFAULT NULL,
+  `NomenyRelation` varchar(45) DEFAULT NULL,
+  `Notes` varchar(200) DEFAULT NULL,
+  `OtherAmount` double DEFAULT NULL,
+  PRIMARY KEY (`SrNoMaster`),
+  UNIQUE KEY `Name_UNIQUE` (`Name`),
+  UNIQUE KEY `AccountNumber_UNIQUE` (`AccountNumber`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fd`
+--
+
+LOCK TABLES `fd` WRITE;
+/*!40000 ALTER TABLE `fd` DISABLE KEYS */;
+INSERT INTO `fd` VALUES (1,'1','2016-10-03','2024-08-15','lakde','F-1','klfsdaj',20,'dfas','6 Month	','180.0',235.77,4.2,9.90248028,245.68,0,0,0,0,0,'asd','   Paternal Grandfather','fsda',200),(2,'2','2016-10-03','2025-01-23','sadip','F-2','motewadi',22,'01234567890','2 Month','60.0',1552.97,4.5,69.88385249999999,1622.86,0,0,0,0,0,'sagar','    Brother','dsa',200),(3,'3','2024-04-25','2025-01-23','appa','F-3','hgf',22,'0123','1 Month','30.0',2593.74,10,259.37449999999995,2853.12,20,200,10,20,220,'a','   Paternal Grandfather','ajkg',100),(4,'4','2024-05-01','2025-01-23','sagar kaka','F-4','dsajh',20,'0123456789','1 Month','30.0',5187.48,10,518.7479,5706.23,20,400,10,40,440,'jkh','    Maternal Grandfather ','asd	',200),(5,'5','2024-05-01','2025-01-23','kaka ','F-5','ldask',20,'01234567890','1 Month','30.0',12968.71,10,1296.8714,14265.59,20,1000,10,100,1100,'jhgf','    Maternal Grandfather ','dsa	',300),(6,'6','2024-06-02','2025-01-23','asdkl','F-6','das',30,'0123','2 Month','60.0',298.6,20,59.7192,358.32,20,20,10,2,22,'dsa','   Paternal Grandfather','fdas',100),(7,'7','2024-06-02','2025-01-23','dsj dkajf','F-7','klfdaj',22,'1025','3 Month	','90.0',292.82,10,29.281999999999996,322.1,20,40,10,4,44,'ds','    Maternal Grandfather ','dfas',200),(8,'8','2024-08-15','2025-01-23','madan lakade','F-8','dfsa',30,'012','2 Month','60.0',439.23,10,43.923,483.15,20,60,10,6,66,'fdsa','   Paternal Grandfather','fdsa',100),(9,'9','2024-10-16','2025-01-23','dfsa das','F-9','dsa',30,'','3 Month	','90.0',363,10,36.3,399.3,10,30,20,6,36,'das','   Paternal Grandfather','ddas',300),(10,'10','2024-12-10','2024-12-10','dasdsa fads','F-10','64',65,'654654','2 Month','60.0',200,10,20,220,30,60,20,12,72,'fsdsa','    Brother','dasf',200),(11,'11','2025-01-23','2025-01-23','madam','F-11','dfsa',22,'0123','2 Month','60.0',30000,10,3000,33000,20,6000,10,600,6600,'dsa','   Paternal Grandfather','fds',300),(12,'12','2025-01-23','2025-01-23','dsakfj dsafkj','F-12','lkfdsja',200,'200','1 Month','30.0',300,10,30,330,10,30,10,3,33,'dsa','   Paternal Grandfather','fads	',300),(13,'13','2025-01-23','2025-01-23','madam madam ','F-13','hjkh',33,'0123','1 Month','30.0',3000,10,300,3300,10,300,10,30,330,'jhhytgf','    Maternal Grandmother','hjgf	',500),(14,'14','2025-01-23','2025-01-23','sagar dhone','F-14','dsakj',22,'0123','2 Month','60.0',1000,10,100,1100,20,200,10,20,220,'dfh','   Paternal Grandfather','dsa	',300),(15,'15','2017-01-26','2017-01-26','hgh hgjh jhgjhgf','F-15','ghjh ',77,'113165','other e.g 3 Month,3 Year','',200,10,20,220,10,20,20,4,24,'dfd','   Paternal Grandfather','nbvh	',300),(16,'16','2017-01-26','2017-01-26',' cmxvn dlakf','F-16','klfdjsa',987,'98','2 Month','60.0',2000,10,200,2200,20,400,10,40,440,'fdsa','   Paternal Grandfather','987fdsa	',300);
+/*!40000 ALTER TABLE `fd` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `loan`
+--
+
+DROP TABLE IF EXISTS `loan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `loan` (
+  `Srnomaster` int(11) NOT NULL,
+  `Srno` int(10) NOT NULL,
+  `date` date DEFAULT NULL,
+  `UpdateAmtDate` date DEFAULT NULL,
+  `AmtPaidDate` date DEFAULT NULL,
+  `AccountNumber` varchar(45) DEFAULT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  `Address` varchar(45) DEFAULT NULL,
+  `Age` double DEFAULT '0',
+  `ContactNo` varchar(45) DEFAULT NULL,
+  `LoanAgainst` varchar(45) DEFAULT NULL,
+  `Duration` varchar(45) DEFAULT NULL,
+  `Days` double DEFAULT '0',
+  `Amount` double DEFAULT '0',
+  `Interst` double DEFAULT '0',
+  `InstersAmt` double DEFAULT '0',
+  `Total` double DEFAULT '0',
+  `ShareInterst` double DEFAULT NULL,
+  `ShareInterstAmt` double DEFAULT NULL,
+  `FormFee` double DEFAULT NULL,
+  `StationaryAmt` double DEFAULT NULL,
+  `TotalRemaningFee` varchar(45) DEFAULT NULL,
+  `Gaurentr1` varchar(45) DEFAULT NULL,
+  `Relation1` varchar(45) DEFAULT NULL,
+  `Gaurentr2` varchar(45) DEFAULT NULL,
+  `Relation2` varchar(45) DEFAULT NULL,
+  `Nomeny` varchar(45) DEFAULT NULL,
+  `NomeyRelation` varchar(45) DEFAULT NULL,
+  `FileData` longblob,
+  `FilePath` varchar(45) DEFAULT NULL,
+  `Note` longtext,
+  `MonthlyInst` double DEFAULT NULL,
+  `Code` int(11) DEFAULT '0',
+  `LastDate` date DEFAULT NULL,
+  PRIMARY KEY (`Srnomaster`),
+  UNIQUE KEY `AccountNumber_UNIQUE` (`AccountNumber`),
+  UNIQUE KEY `Name_UNIQUE` (`Name`),
+  KEY `loacno` (`AccountNumber`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `loan`
+--
+
+LOCK TABLES `loan` WRITE;
+/*!40000 ALTER TABLE `loan` DISABLE KEYS */;
+INSERT INTO `loan` VALUES (1,1,'2016-11-01','2016-12-31','2016-11-01','L-1','appasaheb','kldsa',22,'01','fdds','1 Month',30,1962.49,10,196.25,2158.74,5,50,10,10,'930.0','ds','   Paternal Grandfather','dfs','   Paternal Grandfather','fdsa','   Paternal Grandfather','try {\r\n			conn = DBConnection.getConnection();\r\n			String insbe = \"insert into bkathityping.bookdene values(?,?,?,?,?,?,?,?,?);\";\r\n			ps = conn.prepareStatement(insbe);\r\n			ps.setInt(1, Integer.valueOf(textFBDSrno));\r\n			ps.setInt(2, Integer.valueOf(textFBDSrno));\r\n			ps.setDate(3, (java.sql.Date) d);\r\n			ps.setString(4, textFBDBookDenoteSir);\r\n			ps.setString(5, textFBDStudentName);\r\n			ps.setString(6, textFBDBookName);\r\n			ps.setDate(7, bdene11);\r\n			ps.setDate(8, bdentrretn11);\r\n			ps.setString(9, textFBDBookcountity);\r\n			int is = ps.executeUpdate();\r\n			if (is > 0) {\r\n	%>\r\n	<script type=\"text/javascript\">\r\n		alert(\"Data are saved.\");\r\n		window.location.href = \"BookInformation.jsp\";\r\n	</script>\r\n	<%\r\n		}\r\n			ps.close();\r\n			conn.close();\r\n		} catch (Exception e2) {\r\n			out.println(e2.getMessage());\r\n		}\r\n		try {\r\n			conn = DBConnection.getConnection();\r\n			String insbe = \"insert into bkathityping.bookgive values(?,?,?,?,?,?,?,?,?);\";\r\n			ps = conn.prepareStatement(insbe);\r\n			ps.setInt(1, Integer.valueOf(textFBGSrno));\r\n			ps.setInt(2, Integer.valueOf(textFBGSrno));\r\n			ps.setDate(3, (java.sql.Date) d);\r\n			ps.setString(4, textFBGBookDenoteSir);\r\n			ps.setString(5, textFBGStudentName);\r\n			ps.setString(6, textFBGBookName);\r\n			ps.setDate(7, bgenrretrn11);\r\n			ps.setDate(8, bgenerutun11);\r\n			ps.setString(9, textFBGBookcountity);\r\n			int is = ps.executeUpdate();\r\n			if (is > 0) {\r\n	%>\r\n	<script type=\"text/javascript\">\r\n		alert(\"Data are saved.\");\r\n		window.location.href = \"BookInformation.jsp\";\r\n	</script>\r\n	<%\r\n		}\r\n			ps.close();\r\n			conn.close();\r\n\r\n		} catch (Exception e3) {\r\n			out.println(e3.getMessage());\r\n		}\r\n	%>\r\n','C:\\Users\\appasaheb\\Desktop\\11.txt','dsa',100,6,NULL),(2,2,'2017-01-26','2017-01-26','2017-01-26','L-2','madan','ldksaj',22,'012356','dsa','1 Month',30,10000,10,1000,11000,5,500,100,100,'9300.0','fasd','   Paternal Grandfather','fdas','Other','fdsa','    Maternal Grandfather ','try {\r\n			conn = DBConnection.getConnection();\r\n			String insbe = \"insert into bkathityping.bookdene values(?,?,?,?,?,?,?,?,?);\";\r\n			ps = conn.prepareStatement(insbe);\r\n			ps.setInt(1, Integer.valueOf(textFBDSrno));\r\n			ps.setInt(2, Integer.valueOf(textFBDSrno));\r\n			ps.setDate(3, (java.sql.Date) d);\r\n			ps.setString(4, textFBDBookDenoteSir);\r\n			ps.setString(5, textFBDStudentName);\r\n			ps.setString(6, textFBDBookName);\r\n			ps.setDate(7, bdene11);\r\n			ps.setDate(8, bdentrretn11);\r\n			ps.setString(9, textFBDBookcountity);\r\n			int is = ps.executeUpdate();\r\n			if (is > 0) {\r\n	%>\r\n	<script type=\"text/javascript\">\r\n		alert(\"Data are saved.\");\r\n		window.location.href = \"BookInformation.jsp\";\r\n	</script>\r\n	<%\r\n		}\r\n			ps.close();\r\n			conn.close();\r\n		} catch (Exception e2) {\r\n			out.println(e2.getMessage());\r\n		}\r\n		try {\r\n			conn = DBConnection.getConnection();\r\n			String insbe = \"insert into bkathityping.bookgive values(?,?,?,?,?,?,?,?,?);\";\r\n			ps = conn.prepareStatement(insbe);\r\n			ps.setInt(1, Integer.valueOf(textFBGSrno));\r\n			ps.setInt(2, Integer.valueOf(textFBGSrno));\r\n			ps.setDate(3, (java.sql.Date) d);\r\n			ps.setString(4, textFBGBookDenoteSir);\r\n			ps.setString(5, textFBGStudentName);\r\n			ps.setString(6, textFBGBookName);\r\n			ps.setDate(7, bgenrretrn11);\r\n			ps.setDate(8, bgenerutun11);\r\n			ps.setString(9, textFBGBookcountity);\r\n			int is = ps.executeUpdate();\r\n			if (is > 0) {\r\n	%>\r\n	<script type=\"text/javascript\">\r\n		alert(\"Data are saved.\");\r\n		window.location.href = \"BookInformation.jsp\";\r\n	</script>\r\n	<%\r\n		}\r\n			ps.close();\r\n			conn.close();\r\n\r\n		} catch (Exception e3) {\r\n			out.println(e3.getMessage());\r\n		}\r\n	%>\r\n','C:\\Users\\appasaheb\\Desktop\\11.txt','fdsa',100,1,'2017-01-31'),(3,3,'2017-01-26','2017-01-26','2017-01-26','L-3',' cmxvn dlakf','klfdjsa',987,'98',NULL,'2 Month',60,400,10,40,440,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'fdsa','   Paternal Grandfather',NULL,NULL,'987fdsa	',NULL,1,'2017-01-31');
+/*!40000 ALTER TABLE `loan` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `loantranscation`
+--
+
+DROP TABLE IF EXISTS `loantranscation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `loantranscation` (
+  `SrNoMaster` int(11) DEFAULT NULL,
+  `SrNo` int(11) DEFAULT NULL,
+  `Date` date DEFAULT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  `AccountNo` varchar(45) DEFAULT NULL,
+  `TransactionParticulars` varchar(200) DEFAULT NULL,
+  `TranBy` varchar(45) DEFAULT NULL,
+  `chequeno` varchar(45) DEFAULT NULL,
+  `Amount` double DEFAULT NULL,
+  `Withdral` double DEFAULT NULL,
+  `Deposite` double DEFAULT NULL,
+  `Balance` double DEFAULT NULL,
+  KEY `lonacno_idx` (`AccountNo`),
+  CONSTRAINT `lonacno` FOREIGN KEY (`AccountNo`) REFERENCES `loan` (`AccountNumber`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `loantranscation`
+--
+
+LOCK TABLES `loantranscation` WRITE;
+/*!40000 ALTER TABLE `loantranscation` DISABLE KEYS */;
+INSERT INTO `loantranscation` VALUES (1,1,'2016-11-01','appasaheb','L-1','Loan of',NULL,NULL,NULL,NULL,NULL,1000),(1,2,'2016-11-01','appasaheb','L-1','loan','By Cash','',100,100,NULL,900),(1,3,'2016-11-01','appasaheb','L-1','sagar','By Cash','',200,200,NULL,700),(1,4,'2016-11-01','appasaheb','L-1','Intsert=10.0%',NULL,NULL,770,NULL,NULL,847),(1,5,'2016-11-01','appasaheb','L-1','Intsert=10.0%',NULL,NULL,931.7,NULL,NULL,1024.87),(1,6,'2016-11-01','appasaheb','L-1','Intsert=10.0%',NULL,NULL,1127.36,NULL,NULL,1240.09),(1,7,'2016-11-01','appasaheb','L-1','Intsert=10.0%',NULL,NULL,1364.1,NULL,NULL,1500.51),(1,8,'2016-11-01','appasaheb','L-1','Intsert=10.0%',NULL,NULL,1650.56,NULL,NULL,1815.62),(1,9,'2016-11-30','appasaheb','L-1','Monthly Intsert=10.0%',NULL,NULL,1794.8144219178082,NULL,NULL,1974.295864109589),(1,10,'2016-11-30','appasaheb','L-1','Monthly Intsert=10.0%',NULL,NULL,1794.8144219178082,NULL,NULL,1974.295864109589),(1,11,'2016-11-30','appasaheb','L-1','Monthly Intsert=10.0%',NULL,NULL,1794.8144219178082,NULL,NULL,1974.295864109589),(1,12,'2016-11-30','appasaheb','L-1','Monthly Intsert=10.0%',NULL,NULL,1794.81,NULL,NULL,1974.291),(1,13,'2016-11-30','appasaheb','L-1','Monthly Intsert=10.0%',NULL,NULL,1794.81,NULL,NULL,1974.291),(1,14,'2016-12-31','appasaheb','L-1','Monthly Intsert=10.0%',NULL,NULL,1962.489509589041,NULL,NULL,2158.738460547945),(2,1,'2017-01-26','madan','L-2','Loan of',NULL,NULL,NULL,NULL,NULL,10000),(3,1,'2017-01-26',' cmxvn dlakf','L-3','Loan of',NULL,NULL,NULL,NULL,NULL,40);
+/*!40000 ALTER TABLE `loantranscation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ownerbank`
+--
+
+DROP TABLE IF EXISTS `ownerbank`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ownerbank` (
+  `SrNoMaster` int(11) NOT NULL,
+  `SrNo` int(11) DEFAULT NULL,
+  `TranDate` date DEFAULT NULL,
+  `TranType` varchar(45) DEFAULT NULL,
+  `TranDetils` varchar(45) DEFAULT NULL,
+  `BankName` varchar(45) DEFAULT NULL,
+  `PaymentMode` varchar(45) DEFAULT NULL,
+  `ChequeNo` varchar(20) DEFAULT NULL,
+  `ChequeName` varchar(45) DEFAULT NULL,
+  `Amunt` double DEFAULT NULL,
+  PRIMARY KEY (`SrNoMaster`),
+  KEY `bankname_idx` (`BankName`),
+  CONSTRAINT `bankname` FOREIGN KEY (`BankName`) REFERENCES `bankname` (`BankName`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ownerbank`
+--
+
+LOCK TABLES `ownerbank` WRITE;
+/*!40000 ALTER TABLE `ownerbank` DISABLE KEYS */;
+INSERT INTO `ownerbank` VALUES (1,1,'2016-11-03','Deposite','tfreg','sbi','Cash','','',200),(2,2,'2016-10-03','Deposite','extra add','sbi','Cash','','',2000);
+/*!40000 ALTER TABLE `ownerbank` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `recurring`
+--
+
+DROP TABLE IF EXISTS `recurring`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `recurring` (
+  `SrNoMaster` int(11) NOT NULL,
+  `SrNo` int(11) DEFAULT NULL,
+  `Date` date DEFAULT NULL,
+  `Updateamtdate` date DEFAULT NULL,
+  `CustomerName` varchar(45) DEFAULT NULL,
+  `AccountNo` varchar(45) DEFAULT NULL,
+  `Address` varchar(45) DEFAULT NULL,
+  `Age` double DEFAULT NULL,
+  `ContactNo` varchar(45) DEFAULT NULL,
+  `Amount` double DEFAULT NULL,
+  `Intrest` double DEFAULT NULL,
+  `IntrestAmt` double DEFAULT NULL,
+  `MaturedAmount` double DEFAULT NULL,
+  `Duration` varchar(45) DEFAULT NULL,
+  `Days` varchar(45) DEFAULT NULL,
+  `Nameofagent` varchar(45) DEFAULT NULL,
+  `Notes` varchar(100) DEFAULT NULL,
+  `NomenyName` varchar(45) DEFAULT NULL,
+  `NomenyRelation` varchar(45) DEFAULT NULL,
+  `OtherAmount` double DEFAULT NULL,
+  PRIMARY KEY (`SrNoMaster`),
+  UNIQUE KEY `AccountNo_UNIQUE` (`AccountNo`),
+  UNIQUE KEY `CustomerName_UNIQUE` (`CustomerName`),
+  KEY `reacno` (`AccountNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `recurring`
+--
+
+LOCK TABLES `recurring` WRITE;
+/*!40000 ALTER TABLE `recurring` DISABLE KEYS */;
+INSERT INTO `recurring` VALUES (6,6,'2021-05-27','2024-04-25','dipake','R-6','dsalk',55,'100',9775.76,10,40,10753.336,'null','null','fdksj','das	','3fdsa','   Paternal Grandfather',200),(7,7,'2023-10-13','2024-01-26','daslk','R-7','dsakl',55,'022',0,10,40,1563.1,'3 Month	','90.0','dsa','lkdjs	','dfsa','   Paternal Grandfather',300),(8,8,'2017-01-01','2017-01-01','appasaheb','R-8','dklsaj',22,'22',100,10,10,110,'1 Month','30.0','dipak','fdsa	','102','    Maternal Grandfather ',200);
+/*!40000 ALTER TABLE `recurring` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `saving`
+--
+
+DROP TABLE IF EXISTS `saving`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `saving` (
+  `SrnoMaster` int(11) NOT NULL,
+  `Srno` int(10) unsigned NOT NULL,
+  `Date` date DEFAULT NULL,
+  `UpdateAmtDate` date DEFAULT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  `AcountNumber` varchar(45) DEFAULT NULL,
+  `Address` varchar(45) DEFAULT NULL,
+  `Age` varchar(45) DEFAULT NULL,
+  `ContactNo` varchar(45) DEFAULT NULL,
+  `AccountCatogery` varchar(45) DEFAULT NULL,
+  `OpningAmount` double DEFAULT NULL,
+  `Interist` double DEFAULT NULL,
+  `InterestPer` double DEFAULT NULL,
+  `Total` double DEFAULT NULL,
+  `Nomeny` varchar(200) DEFAULT NULL,
+  `NomenyRelation` varchar(45) DEFAULT NULL,
+  `FileData` longblob,
+  `FilePath` varchar(45) DEFAULT NULL,
+  `Note` longtext,
+  `JoinName` varchar(45) DEFAULT NULL,
+  `JoinDate` varchar(45) DEFAULT NULL,
+  `JoinContactNo` varchar(45) DEFAULT NULL,
+  `JoinRelation` varchar(45) DEFAULT NULL,
+  `OtherAmount` double DEFAULT NULL,
+  PRIMARY KEY (`SrnoMaster`),
+  UNIQUE KEY `Name_UNIQUE` (`Name`),
+  UNIQUE KEY `AcountNumber_UNIQUE` (`AcountNumber`),
+  KEY `acno` (`AcountNumber`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `saving`
+--
+
+LOCK TABLES `saving` WRITE;
+/*!40000 ALTER TABLE `saving` DISABLE KEYS */;
+INSERT INTO `saving` VALUES (1,1,'2016-12-31','2016-12-31','sagar mihta','S-1','kdsa','33.0','123',NULL,2900,NULL,NULL,3000,NULL,NULL,NULL,NULL,'This is Employee.',NULL,NULL,NULL,NULL,NULL),(2,2,'2017-01-01','2016-12-31','appsaheb','S-2','dsklj','22.0','021',NULL,-1674435589,NULL,NULL,1000,NULL,NULL,NULL,NULL,'This is Employee.',NULL,NULL,NULL,NULL,NULL),(3,3,'2017-01-01','2016-12-31','fdlsakj','S-3','lkfjdas','55.0','0123',NULL,-454,NULL,NULL,100,NULL,NULL,NULL,NULL,'This is Employee.',NULL,NULL,NULL,NULL,NULL),(4,4,'2016-12-31','2016-12-31','flkdj daslkj','S-4','lkfdjas','50.0','2123',NULL,-200,NULL,-0,-200,NULL,NULL,NULL,NULL,'This is Employee.',NULL,NULL,NULL,NULL,NULL),(5,5,'2017-01-01','2016-12-31','lla lla lla','S-5','lfkdas','88.0','125',NULL,1340,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'This is Employee.',NULL,NULL,NULL,NULL,NULL),(6,6,'2017-01-01','2017-01-01','llasdr daslkj','S-6','dklasj','55.0','5456',NULL,99900,NULL,NULL,100000,NULL,NULL,NULL,NULL,'This is Employee.',NULL,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `saving` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `savingtranscation`
+--
+
+DROP TABLE IF EXISTS `savingtranscation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `savingtranscation` (
+  `SrNoMaster` int(11) DEFAULT NULL,
+  `SrNo` int(11) DEFAULT NULL,
+  `Date` date DEFAULT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  `AccountNo` varchar(45) DEFAULT NULL,
+  `TransactionParticulars` varchar(200) DEFAULT NULL,
+  `tranby` varchar(45) DEFAULT NULL,
+  `chequeno` varchar(45) DEFAULT NULL,
+  `Amount` double DEFAULT NULL,
+  `Widtral` double DEFAULT NULL,
+  `Depotie` double DEFAULT NULL,
+  `Balance` double DEFAULT NULL,
+  KEY `accounno_idx` (`AccountNo`),
+  CONSTRAINT `accno` FOREIGN KEY (`AccountNo`) REFERENCES `saving` (`AcountNumber`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `savingtranscation`
+--
+
+LOCK TABLES `savingtranscation` WRITE;
+/*!40000 ALTER TABLE `savingtranscation` DISABLE KEYS */;
+INSERT INTO `savingtranscation` VALUES (1,1,'2016-12-31','sagar mihta','S-1','Employee opening account',NULL,NULL,NULL,NULL,NULL,2900),(2,1,'2016-12-31','appsaheb','S-2','Employee opening account',NULL,NULL,NULL,NULL,NULL,900),(3,1,'2016-12-31','fdlsakj','S-3','Employee opening account',NULL,NULL,NULL,NULL,NULL,90),(4,1,'2016-12-31','flkdj daslkj','S-4','Agent opening account',NULL,NULL,NULL,NULL,NULL,NULL),(5,1,'2016-12-31','lla lla lla','S-5','Agent opening account',NULL,NULL,NULL,NULL,NULL,NULL),(0,2,'2017-01-01','appsaheb','S-2','Employee add balance',NULL,NULL,NULL,NULL,NULL,-209714230),(2,2,'2017-01-01','appsaheb','S-2','Employee add balance',NULL,NULL,NULL,NULL,NULL,-419429700),(2,3,'2017-01-01','appsaheb','S-3','Employee add balance',NULL,NULL,NULL,NULL,NULL,-838859804),(3,2,'2017-01-01','fdlsakj','S-3','Employee add balance',NULL,NULL,NULL,NULL,NULL,-544),(6,1,'2017-01-01','llasdr daslkj','S-6','Employee opening account',NULL,NULL,NULL,NULL,NULL,99900),(5,2,'2017-01-01','lla lla lla','S-5','Agent balance add',NULL,NULL,100,NULL,NULL,NULL),(5,3,'2017-01-01','lla lla lla','S-5','Agent balance add',NULL,NULL,100,NULL,NULL,NULL),(5,4,'2017-01-01','lla lla lla','S-5','Agent balance add',NULL,NULL,300,NULL,NULL,NULL),(5,5,'2017-01-01','lla lla lla','S-5','Agent balance add',NULL,NULL,10,NULL,NULL,NULL),(5,6,'2017-01-01','lla lla lla','S-5','Agent balance add',NULL,NULL,30,NULL,NULL,NULL),(5,7,'2017-01-01','lla lla lla','S-5','Agent balance add',NULL,NULL,100,NULL,NULL,NULL),(4,2,'2017-01-26','flkdj daslkj','S-4','fd','By Cash','',200,200,NULL,-200);
+/*!40000 ALTER TABLE `savingtranscation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `schemea_c`
+--
+
+DROP TABLE IF EXISTS `schemea_c`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `schemea_c` (
+  `SrNoMaster` int(11) NOT NULL,
+  `SrNo` int(11) DEFAULT NULL,
+  `Date` varchar(45) DEFAULT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  `Address` varchar(45) DEFAULT NULL,
+  `Age` double DEFAULT NULL,
+  `ContactNo` varchar(45) DEFAULT NULL,
+  `Amount` double DEFAULT NULL,
+  `SchPer` double DEFAULT NULL,
+  `SchAmt` double DEFAULT NULL,
+  `Total` double DEFAULT NULL,
+  `SchType` varchar(45) DEFAULT NULL,
+  `Duration` varchar(45) DEFAULT NULL,
+  `Days` varchar(45) DEFAULT NULL,
+  `Note` varchar(45) DEFAULT NULL,
+  `NomenyName` varchar(45) DEFAULT NULL,
+  `NomenyRelation` varchar(45) DEFAULT NULL,
+  `AccountNo` varchar(45) DEFAULT NULL,
+  `OtherAmount` double DEFAULT NULL,
+  PRIMARY KEY (`SrNoMaster`),
+  UNIQUE KEY `Name_UNIQUE` (`Name`),
+  UNIQUE KEY `AccountNo_UNIQUE` (`AccountNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `schemea_c`
+--
+
+LOCK TABLES `schemea_c` WRITE;
+/*!40000 ALTER TABLE `schemea_c` DISABLE KEYS */;
+INSERT INTO `schemea_c` VALUES (1,1,'2017-08-03','appsafdsakj','sdfkla',10,'fdsa',1522.664,4,60.90656,1583.57056,'B','Select','','sdafdsa','as','   Paternal Grandfather','Sc-1',2000),(2,2,'2018-12-06','sda','sdaf',20,'jkash',2516.8,4,100.67200000000001,2617.472,'D','2 Month','60.0','sdakj','sdfalkj','    Maternal Grandfather ','Sc-2',300);
+/*!40000 ALTER TABLE `schemea_c` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `shares`
+--
+
+DROP TABLE IF EXISTS `shares`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `shares` (
+  `SrNoMaster` int(11) NOT NULL,
+  `SrNo` int(11) DEFAULT NULL,
+  `Date` date DEFAULT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  `AccountNo` varchar(45) DEFAULT NULL,
+  `Address` varchar(45) DEFAULT NULL,
+  `Age` double DEFAULT NULL,
+  `ContactNo` varchar(45) DEFAULT NULL,
+  `Amount` double DEFAULT NULL,
+  `SchPer` double DEFAULT NULL,
+  `TotalQtyl` double DEFAULT NULL,
+  `Total` double DEFAULT NULL,
+  `Notess` varchar(45) DEFAULT NULL,
+  `NomenyName` varchar(45) DEFAULT NULL,
+  `NomenyRelation` varchar(45) DEFAULT NULL,
+  `OtherAmount` double DEFAULT NULL,
+  PRIMARY KEY (`SrNoMaster`),
+  UNIQUE KEY `Name_UNIQUE` (`Name`),
+  UNIQUE KEY `AccountNo_UNIQUE` (`AccountNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `shares`
+--
+
+LOCK TABLES `shares` WRITE;
+/*!40000 ALTER TABLE `shares` DISABLE KEYS */;
+INSERT INTO `shares` VALUES (1,NULL,'2016-11-01','appasaheb','L-1','kldsa',22,'01',50,5,NULL,50,'dsa',NULL,NULL,NULL),(2,NULL,'2017-01-26','madan','L-2','ldksaj',22,'012356',500,5,NULL,500,'fdsa',NULL,NULL,NULL);
+/*!40000 ALTER TABLE `shares` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2016-10-09 14:28:48
